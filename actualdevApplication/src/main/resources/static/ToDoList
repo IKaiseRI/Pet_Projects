@@ -1,0 +1,30 @@
+Demo application version 2.0
+The file is written for my colleagues in order to realise what was done and what has to be done
+
+!!!First thing to notice -> There are no comments by now, however the methods and variables are named in the most explicit way.
+you can easily understand what's going on.
+
+WHAT WAS DONE BY NOW???
+1. CRUD functionality for STOCKS (this will be the general product that will be available for all users)
+What is it for?
+-products can be created by any user in order to develop the general product of the application
+-these can be seen by all users in order to be able to pick something for his own product
+
+2. CRUD functionality for USERS (by now this is an inmemory variant without security)
+What is it for?
+-new users can be "registered"
+-each user from the beginning has an empty "ownstock"
+
+3 CRUD functionality for UserStocks (this is pretty much finished)
+What is it for?
+-user can manipulate with his own products
+
+WHAT HAS TO BE DONE FURTHER??
+
+1. We need to add validators in the Service classes (ex: user should be able to add his own products only if these are present in general product)
+2. We need to create 2 more (at least) CRUD functionalities by now
+    - UserRecipe
+    - UserMenu
+3. Even though you may find an HTML file, it is not yet used. We have to integrate our front
+
+TO BE CONTINUE

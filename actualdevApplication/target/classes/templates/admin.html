@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/style.css" type="text/css">
+</head>
+<body>
+
+<header th:insert="components/header :: header"></header>
+    <section class="py-5 text-center container">
+        <form action="#" th:action="@{/getUserInfo}" th:object="${getUser}" method="POST">
+        <div class="container w-50 p-3">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Modify roles</button>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-dark">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Roles</th>
+                </tr>
+                <tr th:each="user: ${users}">
+                    <td>
+                        <input type="radio" th:field="${getUser.id}" th:value="${user.id}">
+                    </td>
+                    <td th:text="${user.username}"></td>
+                    <td th:if="${#lists.size(user.roles) == 2}">
+                        <div th:each="role: ${user.roles}">
+                            <div th:text="${role.name}"></div>
+                        </div>
+                    </td>
+                    <td th:if="${#lists.size(user.roles) == 1}">
+                        <div th:each="role: ${user.roles}">
+                            <div th:text="${role.name}"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </form>
+    </section>
+<div th:insert="components/footer :: footer"></div>
+</body>
+</html>

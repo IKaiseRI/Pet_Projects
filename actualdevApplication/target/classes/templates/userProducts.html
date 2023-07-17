@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+
+<header th:insert="components/header :: header"></header>
+
+<main>
+    <section class="py-5 text-center container">
+        <div class="container-fluid">
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product: ${products}">
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.quantity}"></td>
+                    <td>
+                        <a th:href="@{/deleteUserProduct/{id}(id=${product.id})}"
+                           class="btn btn-danger">Delete
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/createUserProducts}"
+               class="btn btn-primary btn-sm mb-3">Add Stock
+            </a>
+        </div>
+    </section>
+</main>
+
+<div th:insert="components/footer :: footer"></div>
+</body>
+</html>
